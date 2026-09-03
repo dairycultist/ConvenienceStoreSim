@@ -1,5 +1,8 @@
 # ConvenienceStoreSim
 
+TODO every action that can have downstream effects emits a signal whose parameter is a string id identifying the action. that way, adding a downstream
+effect is as simple as listening for the signal and checking for that specific string id (ergo, the burden of causality is on the caused, not the causer)
+
 goal
 - made in Godot
 - historically accurate to November 1st, 1970, New Jersey (because Bell Labs was operated there)
@@ -20,6 +23,11 @@ goal
   - store economy system
   - social reputation system
   - simulated radio stations
+  - you can look down at your full body
+    - lets you change clothes
+    - lets you bathe yourself
+    - lets you stow stuff in your pockets
+    - lets you inspect/dress wounds
   - rotary phone which you have to manually drag the numbers of to call (you get predetermined dialogue options when on-call, and waiting too long causes the other person to get confused or hang up)
     - randomly dialing may actually reach someone
     - you have a sticky note with useful numbers like your supplier, a pizza joint, etc

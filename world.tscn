@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://crnsnywu124mi"]
+
+[ext_resource type="PackedScene" uid="uid://bk102k2egnj0a" path="res://store.blend" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://7uwjh6byvtl7" path="res://player/player.gd" id="2_fj7yv"]
+[ext_resource type="ArrayMesh" uid="uid://bu5uf81bs3stk" path="res://player/hand.obj" id="3_tlwt5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lxpj2"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lxpj2"]
+
+[node name="Node3D" type="Node3D" unique_id=1480806274]
+
+[node name="store" parent="." unique_id=1714539540 instance=ExtResource("1_f3sb7")]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, -2.5786672, 0, 0)
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=282808929]
+collision_layer = 2
+script = ExtResource("2_fj7yv")
+
+[node name="Collider" type="CollisionShape3D" parent="Player" unique_id=1080480719]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_lxpj2")
+
+[node name="CameraMount" type="Node3D" parent="Player" unique_id=597571864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+
+[node name="Camera" type="Camera3D" parent="Player/CameraMount" unique_id=1059805742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+
+[node name="LeftHand" type="Node3D" parent="Player/CameraMount/Camera" unique_id=1320711303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607, -0.35500002, -0.596)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CameraMount/Camera/LeftHand" unique_id=1296721673]
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 0, 0, 0)
+mesh = ExtResource("3_tlwt5")
+
+[node name="HandRaycast" type="RayCast3D" parent="Player/CameraMount/Camera" unique_id=1574385063]
+target_position = Vector3(0, 0, -1)
+
+[node name="LeftHandRestPos" type="Node3D" parent="Player/CameraMount/Camera" unique_id=786308278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.607, -0.35500002, -0.596)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=2069290956]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=1010601155]
+shape = SubResource("WorldBoundaryShape3D_lxpj2")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Ground" unique_id=243953896]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -1.993439, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_lxpj2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=667577242]
+transform = Transform3D(0.8860357, -0.06366035, 0.4592256, -0.46361706, -0.12166366, 0.877643, 0, -0.9905278, -0.13731237, 0, 0, 0)
