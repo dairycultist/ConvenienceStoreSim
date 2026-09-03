@@ -31,3 +31,5 @@ goal
 https://en.wikipedia.org/wiki/Franklin_Gothic
 
 https://www.dafont.com/keep-on-truckin-fw.font
+
+https://www.dafont.com/varsity-2.font
