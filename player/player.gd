@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("left_hand") and $CameraMount/Camera/HandRaycast.is_colliding():
 		$CameraMount/Camera/LeftHand.global_position = $CameraMount/Camera/HandRaycast.get_collision_point()
 		$CameraMount/Camera/LeftHand.look_at($CameraMount/Camera/LeftHand.global_position + $CameraMount/Camera/HandRaycast.get_collision_normal(), $CameraMount/Camera.global_basis.y, true)
+		Consequences.trigger_for("touching", $CameraMount/Camera/HandRaycast.get_collider())
 	else:
 		$CameraMount/Camera/LeftHand.position = $CameraMount/Camera/LeftHandRestPos.position
 		$CameraMount/Camera/LeftHand.rotation = Vector3.ZERO
@@ -22,6 +23,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("right_hand") and $CameraMount/Camera/HandRaycast.is_colliding():
 		$CameraMount/Camera/RightHand.global_position = $CameraMount/Camera/HandRaycast.get_collision_point()
 		$CameraMount/Camera/RightHand.look_at($CameraMount/Camera/RightHand.global_position + $CameraMount/Camera/HandRaycast.get_collision_normal(), $CameraMount/Camera.global_basis.y, true)
+		Consequences.trigger_for("touching", $CameraMount/Camera/HandRaycast.get_collider())
 	else:
 		$CameraMount/Camera/RightHand.position = $CameraMount/Camera/RightHandRestPos.position
 		$CameraMount/Camera/RightHand.rotation = Vector3.ZERO
