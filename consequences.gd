@@ -7,4 +7,5 @@ func register_callback(callback: Callable):
 	_c.connect(callback)
 
 func trigger_for(id: String, ...args: Array):
-	_c.emit(id, args)
+	args.push_front(id)
+	_c.emit.callv(args)

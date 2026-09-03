@@ -24,6 +24,10 @@ Consequences="*uid://dfsvch3g335lr"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+HandableAnchor="Hand will not move to new surfaces when this is grabbed, until grab button is released."
+
 [input]
 
 left_hand={
