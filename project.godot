@@ -53,6 +53,11 @@ move_down={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Physics"
+3d_physics/layer_2="Handable"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
